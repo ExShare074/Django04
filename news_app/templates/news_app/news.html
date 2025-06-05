@@ -5,11 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Новостная страница</h1>
-{% for news in news %}
-    <div>
-        <h3>{{ news.title }}</h3>
-        <p>{{ news.short_text }}</p>
-    </div>
-{% endfor %}
+<div class="container my-5">
+    <h1 class="mb-4 border-bottom pb-2">Новостная страница</h1>
+
+    {% if news %}
+        <div class="row row-cols-1 g-4">
+            {% for news in news %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ news.title }}</h5>
+                            <p class="card-text">{{ news.short_text }}</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning mt-4" role="alert">
+            <strong>Новостей нет.</strong> Пожалуйста, зайдите позже.
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
