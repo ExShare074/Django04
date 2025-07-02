@@ -12,24 +12,16 @@
     <form method="POST">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="title" class="form-label">Название новости</label>
-            <input type="text" id="title" name="title" class="form-control" placeholder="Введите название">
             {{ form.title }}
         </div>
         <div class="mb-3">
-            <label for="text" class="form-label">Краткое описание</label>
-            <input type="text" id="text" name="text" class="form-control" placeholder="Введите описание">
             {{ form.short_description }}
         </div>
         <div class="mb-3">
-            <label for="body" class="form-label">Содержание новости</label>
-            <textarea id="body" name="body" rows="4" class="form-control" placeholder="Введите текст новости"></textarea>
             {{ form.text }}
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="date" class="form-label">Дата</label>
-                <input type="date" id="date" name="date" class="form-control">
                 {{ form.date }}
             </div>
             <div class="col-md-6">
@@ -39,5 +31,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Добавить новость</button>
     </form>
+    <p>{{ error }}</p>
 </div>
 {% endblock %}
